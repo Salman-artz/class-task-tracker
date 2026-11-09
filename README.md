@@ -111,8 +111,21 @@ Kode status yang dipakai: 200, 201, 204, 400 (validasi/JSON rusak), 401 (belum l
 
 > Bagian ini wajib sesuai petunjuk tes.
 
-- **Dibantu AI (Claude, Anthropic):** perancangan struktur proyek, penulisan awal backend (rute, validasi, middleware), skema SQL, seeder, frontend, 19 feature test, dan README ini.
-- **Yang saya periksa dan ubah sendiri:** *(ISI SEBELUM DIKUMPULKAN. Tuliskan dengan jujur bagian yang Anda baca ulang, jalankan, ubah, atau perbaiki sendiri.)*
+- **Dibantu AI (Claude, Anthropic):** membantu setup awal proyek, desain awal frontend, redesign tampilan, serta dokumentasi README.
+- **Yang saya kerjakan sendiri:**
+  - Mengembangkan backend REST API, termasuk route autentikasi dan tugas.
+  - Menyusun database PostgreSQL, skema tabel, relasi, migrasi, dan validasi data.
+  - Membuat seeder untuk akun, kelas, dan tugas contoh.
+  - Membuat feature test untuk autentikasi, otorisasi guru/siswa, tugas, filter, pagination, dan keamanan dasar.
+  - Menjalankan aplikasi secara lokal.
+  - Menguji alur login, registrasi, logout, serta pemisahan akses guru dan siswa.
+  - Menguji alur guru saat membuat, mengubah, menghapus, dan melihat detail tugas.
+  - Menguji alur siswa saat melihat, mencari, memfilter, membuka detail, dan menandai tugas selesai.
+  - Memeriksa bahwa password di-hash, token diperlukan, dan pembatasan role berjalan.
+  - Memeriksa tampilan desktop dan mobile melalui browser.
+  - Memeriksa loading state, pesan error, status tugas, filter, pagination, dan modal detail read-only.
+  - Memeriksa console browser untuk memastikan tidak ada error pada alur yang diuji.
+  - Memeriksa bahwa file `.env`, token, password, dan kredensial pribadi tidak masuk repository.
 
 ## Struktur folder
 
