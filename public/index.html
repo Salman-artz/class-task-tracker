@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Class Task Tracker</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>Class Task Tracker</h1>
+    <div id="userbox" hidden>
+      <span id="whoami"></span>
+      <button id="logout" class="btn btn-ghost" type="button">Keluar</button>
+    </div>
+  </header>
+
+  <main>
+    <div id="banner" class="banner" role="alert" hidden></div>
+
+    <!-- Auth -->
+    <section id="view-auth" class="card narrow" hidden>
+      <div class="tabs">
+        <button id="tab-login" class="tab active" type="button">Masuk</button>
+        <button id="tab-register" class="tab" type="button">Daftar</button>
+      </div>
+
+      <form id="form-login" novalidate>
+        <label>Email <input name="email" type="email" autocomplete="username" required></label>
+        <label>Password <input name="password" type="password" autocomplete="current-password" required></label>
+        <button class="btn" type="submit">Masuk</button>
+      </form>
+
+      <form id="form-register" novalidate hidden>
+        <label>Nama <input name="name" maxlength="100" required></label>
+        <label>Email <input name="email" type="email" autocomplete="username" required></label>
+        <label>Password <input name="password" type="password" autocomplete="new-password" minlength="8" required>
+          <small>Minimal 8 karakter, mengandung huruf dan angka.</small></label>
+        <label>Peran
+          <select name="role">
+            <option value="student">Siswa</option>
+            <option value="teacher">Guru</option>
+          </select>
+        </label>
+        <label id="reg-class-wrap">Kelas <select name="class_id" id="reg-class"></select></label>
+        <label id="reg-invite-wrap" hidden>Kode undangan guru <input name="invite_code" autocomplete="off"></label>
+        <button class="btn" type="submit">Daftar</button>
+      </form>
+    </section>
+
+    <!-- App -->
+    <section id="view-app" hidden>
+      <div class="toolbar card">
+        <input id="f-search" type="search" placeholder="Cari judul tugas..." maxlength="100" aria-label="Cari judul">
+        <select id="f-status" aria-label="Filter status">
+          <option value="">Semua status</option>
+          <option value="pending">Belum selesai</option>
+          <option value="done">Selesai</option>
+        </select>
+        <button id="btn-new" class="btn" type="button" hidden>+ Tugas baru</button>
+      </div>
+
+      <form id="form-task" class="card" hidden novalidate>
+        <h2 id="task-form-title">Tugas baru</h2>
+        <label>Judul <input name="title" maxlength="150" required></label>
+        <label>Deskripsi <textarea name="description" rows="3" maxlength="5000"></textarea></label>
+        <label>Tenggat <input name="due_date" type="datetime-local" required></label>
+        <label>Kelas <select name="class_id" id="task-class" required></select></label>
+        <div class="row">
+          <button class="btn" type="submit" id="task-submit">Simpan</button>
+          <button class="btn btn-ghost" type="button" id="task-cancel">Batal</button>
+        </div>
+      </form>
+
+      <div id="loading" class="loading" hidden>Memuat…</div>
+      <ul id="task-list" class="task-list"></ul>
+      <p id="empty" class="muted" hidden>Tidak ada tugas yang cocok.</p>
+
+      <nav class="pager" id="pager" hidden>
+        <button id="prev" class="btn btn-ghost" type="button">‹ Sebelumnya</button>
+        <span id="page-info"></span>
+        <button id="next" class="btn btn-ghost" type="button">Berikutnya ›</button>
+      </nav>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
