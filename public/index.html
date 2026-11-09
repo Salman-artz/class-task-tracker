@@ -8,7 +8,10 @@
 </head>
 <body>
   <header class="topbar">
-    <h1>Class Task Tracker</h1>
+    <a class="brand" href="/" aria-label="Class Task Tracker beranda">
+      <span class="brand-mark">CT</span>
+      <span><strong>Class Task</strong><small>Ruang kerja kelas</small></span>
+    </a>
     <div id="userbox" hidden>
       <span id="whoami"></span>
       <button id="logout" class="btn btn-ghost" type="button">Keluar</button>
@@ -20,6 +23,11 @@
 
     <!-- Auth -->
     <section id="view-auth" class="card narrow" hidden>
+      <div class="auth-intro">
+        <p class="eyebrow">PORTAL KELAS</p>
+        <h1>Semua tugas, satu tempat.</h1>
+        <p class="muted">Atur pekerjaan kelas tanpa kehilangan tenggat atau konteks.</p>
+      </div>
       <div class="tabs">
         <button id="tab-login" class="tab active" type="button">Masuk</button>
         <button id="tab-register" class="tab" type="button">Daftar</button>
@@ -75,6 +83,23 @@
       <div id="loading" class="loading" hidden>Memuat…</div>
       <ul id="task-list" class="task-list"></ul>
       <p id="empty" class="muted" hidden>Tidak ada tugas yang cocok.</p>
+
+      <dialog id="task-detail" class="task-detail">
+        <div class="detail-head">
+          <div>
+            <p class="eyebrow">DETAIL TUGAS</p>
+            <h2 id="detail-title"></h2>
+          </div>
+          <button id="detail-close" class="btn btn-ghost btn-sm" type="button" aria-label="Tutup detail">Tutup</button>
+        </div>
+        <p id="detail-description" class="detail-description"></p>
+        <dl class="detail-meta">
+          <div><dt>Kelas</dt><dd id="detail-class"></dd></div>
+          <div><dt>Tenggat</dt><dd id="detail-due"></dd></div>
+          <div id="detail-progress-wrap"><dt>Progress</dt><dd id="detail-progress"></dd></div>
+          <div><dt>Status</dt><dd id="detail-status"></dd></div>
+        </dl>
+      </dialog>
 
       <nav class="pager" id="pager" hidden>
         <button id="prev" class="btn btn-ghost" type="button">‹ Sebelumnya</button>

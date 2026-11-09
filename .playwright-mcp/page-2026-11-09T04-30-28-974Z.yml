@@ -1,0 +1,25 @@
+- generic [active] [ref=f7e1]:
+  - banner [ref=f7e2]:
+    - link "Class Task Tracker beranda" [ref=f7e3] [cursor=pointer]:
+      - /url: /
+      - generic [ref=f7e4]: CT
+      - generic [ref=f7e5]:
+        - strong [ref=f7e6]: Class Task
+        - generic [ref=f7e7]: Ruang kerja kelas
+    - generic [ref=f7e8]:
+      - generic [ref=f7e9]: Bu Rina (Guru) (Guru)
+      - button "Keluar" [ref=f7e10] [cursor=pointer]
+  - main [ref=f7e11]:
+    - generic [ref=f7e12]:
+      - generic [ref=f7e13]:
+        - searchbox "Cari judul" [ref=f7e14]
+        - combobox "Filter status" [ref=f7e15]:
+          - option "Semua status" [selected]
+          - option "Belum selesai"
+          - option "Selesai"
+        - button "+ Tugas baru" [ref=f7e16] [cursor=pointer]
+      - generic [ref=f7e17]: Memuat…
+      - list
+      - navigation [ref=f7e18]:
+        - button "‹ Sebelumnya" [ref=f7e19] [cursor=pointer]
+        - button "Berikutnya ›" [ref=f7e20] [cursor=pointer]

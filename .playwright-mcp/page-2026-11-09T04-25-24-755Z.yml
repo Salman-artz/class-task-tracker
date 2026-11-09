@@ -1,0 +1,26 @@
+- generic [active] [ref=f4e1]:
+  - banner [ref=f4e2]:
+    - link "Class Task Tracker beranda" [ref=f4e3] [cursor=pointer]:
+      - /url: /
+      - generic [ref=f4e4]: CT
+      - generic [ref=f4e5]:
+        - strong [ref=f4e6]: Class Task
+        - generic [ref=f4e7]: Ruang kerja kelas
+    - button "Keluar" [ref=f4e9] [cursor=pointer]
+  - main [ref=f4e10]:
+    - generic [ref=f4e11]:
+      - generic [ref=f4e12]:
+        - paragraph [ref=f4e13]: PORTAL KELAS
+        - heading "Semua tugas, satu tempat." [level=1] [ref=f4e14]
+        - paragraph [ref=f4e15]: Atur pekerjaan kelas tanpa kehilangan tenggat atau konteks.
+      - generic [ref=f4e16]:
+        - button "Masuk" [ref=f4e17] [cursor=pointer]
+        - button "Daftar" [ref=f4e18] [cursor=pointer]
+      - generic [ref=f4e19]:
+        - generic [ref=f4e20]:
+          - text: Email
+          - textbox "Email" [ref=f4e21]
+        - generic [ref=f4e22]:
+          - text: Password
+          - textbox "Password" [ref=f4e23]
+        - button "Masuk" [ref=f4e24] [cursor=pointer]

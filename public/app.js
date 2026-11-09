@@ -143,6 +143,9 @@
           meta);
 
         const actions = el('div', { class: 'task-actions' });
+        const detail = el('button', { class: 'btn btn-ghost btn-sm', type: 'button', textContent: 'Lihat detail' });
+        detail.addEventListener('click', () => showTaskDetail(t));
+        actions.append(detail);
         if (isTeacher) {
           const edit = el('button', { class: 'btn btn-ghost btn-sm', type: 'button', textContent: 'Ubah' });
           edit.addEventListener('click', () => showTaskForm(t));
@@ -162,6 +165,25 @@
       })
     );
   }
+
+  async function showTaskDetail(task) {
+    const dialog = $('task-detail');
+    try {
+      const { data } = await api('GET', `/tasks/${task.id}`);
+      $('detail-title').textContent = data.title;
+      $('detail-description').textContent = data.description || 'Tidak ada deskripsi.';
+      $('detail-class').textContent = data.class_name;
+      $('detail-due').textContent = fmtDate(data.due_date);
+      $('detail-status').textContent = state.user.role === 'teacher' ? 'Aktif' : (data.completed ? 'Selesai' : 'Belum selesai');
+      const progress = state.user.role === 'teacher' ? `${data.completed_count ?? task.completed_count ?? 0}/${data.student_count ?? task.student_count ?? 0} siswa selesai` : '';
+      $('detail-progress-wrap').hidden = state.user.role !== 'teacher';
+      $('detail-progress').textContent = progress;
+      dialog.showModal();
+    } catch (e) { banner(e.message); }
+  }
+
+  $('detail-close').addEventListener('click', () => $('task-detail').close());
+  $('task-detail').addEventListener('click', (e) => { if (e.target === $('task-detail')) $('task-detail').close(); });
 
   const toggleComplete = (t, btn) =>
     withBusy(btn, async () => {
