@@ -45,7 +45,7 @@ router.get('/', validate(listQuery, 'query'), async (req, res, next) => {
     let extraCols = '';
     if (user.role === 'student') {
       where.push(`t.class_id = ${add(user.class_id)}`);
-      const me = add(user.id);
+      const me = Number(user.id); // integer dari DB (bukan input pengguna); dipakai inline agar parameter count/list sama
       extraCols = `, EXISTS (SELECT 1 FROM task_completions tc WHERE tc.task_id = t.id AND tc.student_id = ${me}) AS completed`;
       const doneExpr = `EXISTS (SELECT 1 FROM task_completions tc WHERE tc.task_id = t.id AND tc.student_id = ${me})`;
       if (status === 'done') where.push(doneExpr);
