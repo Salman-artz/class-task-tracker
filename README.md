@@ -1,7 +1,6 @@
 # Class Task Tracker
 
 Aplikasi manajemen tugas kelas: **guru** membuat/mengubah/menghapus tugas, **siswa** melihat tugas kelasnya dan menandai selesai.
-Dibuat untuk Tes Kompetensi Fullstack Developer Magang - SchoolTech Indonesia.
 
 ## Stack
 
@@ -57,11 +56,11 @@ npm test
 
 | Peran | Email | Password | Kelas |
 |---|---|---|---|
-| Guru | `guru@example.test` | `Guru12345` | membuat tugas X-A |
-| Guru | `guru2@example.test` | `Guru12345` | membuat tugas X-B |
-| Siswa | `siswa1@example.test` | `Siswa12345` | X-A |
-| Siswa | `siswa2@example.test` | `Siswa12345` | X-A |
-| Siswa | `siswa3@example.test` | `Siswa12345` | X-B |
+| Guru | `guru@guru.test` | `1234567` | membuat tugas X-A |
+| Guru | `guru2@guru.test` | `1234567` | membuat tugas X-B |
+| Siswa | `siswa1@siswa.test` | `1234567` | X-A |
+| Siswa | `siswa2@siswa.test` | `1234567` | X-A |
+| Siswa | `siswa3@siswa.test` | `1234567` | X-B |
 
 Akun di atas hanya data contoh untuk pengembangan. Untuk mendaftar sebagai guru lewat form, dibutuhkan `TEACHER_INVITE_CODE` dari file `.env` Anda.
 

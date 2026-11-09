@@ -2,8 +2,8 @@
 const bcrypt = require('bcryptjs');
 const db = require('../src/db');
 
-const TEACHER_PASSWORD = 'Guru12345';
-const STUDENT_PASSWORD = 'Siswa12345';
+const TEACHER_PASSWORD = '1234567';
+const STUDENT_PASSWORD = '1234567';
 
 async function main() {
   if (process.env.NODE_ENV === 'production') throw new Error('Seeder tidak boleh dijalankan di production');
@@ -20,16 +20,16 @@ async function main() {
 
   const { rows: teachers } = await db.query(
     `INSERT INTO users (name, email, password_hash, role) VALUES
-       ('Bu Rina (Guru)', 'guru@example.test', $1, 'teacher'),
-       ('Pak Budi (Guru)', 'guru2@example.test', $1, 'teacher')
+       ('Bu Rina (Guru)', 'guru@guru.test', $1, 'teacher'),
+       ('Pak Budi (Guru)', 'guru2@guru.test', $1, 'teacher')
      RETURNING id`,
     [tHash]
   );
   const { rows: students } = await db.query(
     `INSERT INTO users (name, email, password_hash, role, class_id) VALUES
-       ('Andi (Siswa X-A)', 'siswa1@example.test', $1, 'student', $2),
-       ('Sari (Siswa X-A)', 'siswa2@example.test', $1, 'student', $2),
-       ('Dewi (Siswa X-B)', 'siswa3@example.test', $1, 'student', $3)
+       ('Andi (Siswa X-A)', 'siswa1@siswa.test', $1, 'student', $2),
+       ('Sari (Siswa X-A)', 'siswa2@siswa.test', $1, 'student', $2),
+       ('Dewi (Siswa X-B)', 'siswa3@siswa.test', $1, 'student', $3)
      RETURNING id`,
     [sHash, xa.id, xb.id]
   );
@@ -56,7 +56,7 @@ async function main() {
   await db.query('INSERT INTO task_completions (task_id, student_id) VALUES ($1, $2)', [ids[3], students[0].id]);
 
   console.log('Seeder selesai.');
-  console.log('Akun contoh -> guru: guru@example.test / %s ; siswa: siswa1@example.test / %s', TEACHER_PASSWORD, STUDENT_PASSWORD);
+  console.log('Akun contoh -> guru: guru@guru.test / %s ; siswa: siswa1@siswa.test / %s', TEACHER_PASSWORD, STUDENT_PASSWORD);
 }
 
 main()

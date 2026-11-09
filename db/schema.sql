@@ -1,4 +1,3 @@
--- Skema Class Task Tracker (PostgreSQL). Aman dijalankan berulang (idempotent).
 
 CREATE TABLE IF NOT EXISTS classes (
   id   SERIAL PRIMARY KEY,
@@ -30,7 +29,6 @@ CREATE TABLE IF NOT EXISTS tasks (
 CREATE INDEX IF NOT EXISTS idx_tasks_class_due ON tasks (class_id, due_date);
 CREATE INDEX IF NOT EXISTS idx_tasks_created_by ON tasks (created_by);
 
--- Satu baris = satu siswa menandai satu tugas selesai.
 CREATE TABLE IF NOT EXISTS task_completions (
   task_id      INTEGER NOT NULL REFERENCES tasks(id) ON DELETE CASCADE,
   student_id   INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
